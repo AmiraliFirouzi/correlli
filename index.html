@@ -163,7 +163,7 @@
 
 <header class="nav reveal" style="--d:.05s">
   <a class="brand" href="#" aria-label="کورلی">
-    <!-- اگر لوگوی اختصاصی داری، این SVG را با <img src="logo.png" alt="کورلی"> عوض کن -->
+    
     <img src="logo.png" alt="" style="width:32px; height:32px; object-fit:contain">
     <span>کورلی</span>
   </a>
@@ -173,7 +173,7 @@
 <div class="mark reveal" style="--d:.15s">
   <img src="logo.png" alt="لوگوی کورلی" style="width:min(400px,85vw); height:auto; display:block;">
 </div>
-  <!-- این متن از این به بعد هیچ‌جا توسط کد عوض نمی‌شود -->
+  
   <p class="kicker en reveal" style="--d:.25s">DATA · SCIENCE · ASSISTANT</p>
   <h1 class="reveal" style="--d:.35s">کورلی</h1>
   <p class="tagline reveal" style="--d:.45s">دستیار دیتا ساینسِ شما</p>
@@ -196,7 +196,7 @@
 <footer class="reveal" style="--d:.95s">
   <div class="makers">
 
-    <!-- ① سازنده‌ی اول: اسم و سه لینک را عوض کن -->
+    
     <div class="maker">
       <span class="hint">سازنده</span>
       <a class="name" href="https://github.com/username1" target="_blank" rel="noopener">امیرعلی فیروزی</a>
@@ -215,7 +215,7 @@
 
     <div class="vline" aria-hidden="true"></div>
 
-    <!-- ② سازنده‌ی دوم: اسم و سه لینک را عوض کن -->
+    
     <div class="maker">
       <span class="hint">سازنده</span>
       <a class="name" href="https://github.com/username2" target="_blank" rel="noopener">اردشیر معتمدی</a>
@@ -240,9 +240,9 @@
   const $ = s => document.querySelector(s);
   const faDigits = v => String(v).replace(/\d/g, d => '۰۱۲۳۴۵۶۷۸۹'[d]);
 
-  /* ③ تاریخ و ساعت انتشار — (سال، ماه از صفر، روز، ساعت، دقیقه) */
+  
   const TARGET = new Date(2026, 10, 22, 0, 0, 0);
-  // const TARGET = new Date(Date.now() + 45 * 24 * 60 * 60 * 1000); // یا: ۴۵ روز از الان
+  // const TARGET = new Date(Date.now() + 45 * 24 * 60 * 60 * 1000); // 
 
   function setNum(id, v){
     const el = document.getElementById(id);
@@ -252,7 +252,7 @@
     }
   }
 
-  /* شمارش معکوس — به ۰۰ که رسید همان‌جا می‌ماند و هیچ متنی عوض نمی‌شود */
+  /* شمارش معکوس */
   function update(){
     const diff = Math.max(0, TARGET - Date.now());
     setNum('d', faDigits(String(Math.floor(diff / 864e5)).padStart(2, '0')));
@@ -263,9 +263,7 @@
   update();
   setInterval(update, 250);
 
-  /* ── نوار متن متحرک: حلقه‌ی بی‌درز با سرعتِ ثابت ─────────────
-     سرعت بر حسب «پیکسل بر ثانیه» تعریف شده، نه مدت‌زمان؛
-     به این ترتیب روی هر صفحه و با هر عرضی، سرعت یکسان و خوانا می‌ماند. */
+  /* ── نوار متن متحرک ───────────── */
   const PHRASE = 'CORRELLI — YOUR DATA SCIENCE ASSISTANT · COMING SOON · ';
   const SPAN = `<span>${PHRASE.replace(/ /g, '\u00A0')}</span>`;
   const track = $('#track');
@@ -280,18 +278,18 @@
     let guard = 0;
     while (g.offsetWidth < innerWidth + 200 && guard++ < 50) g.innerHTML += SPAN;
     track.appendChild(g);
-    track.appendChild(g.cloneNode(true));   // نیمه‌ی دومِ مو‌به‌مو یکسان → پرش نداریم
+    track.appendChild(g.cloneNode(true));    
 
-    const half = track.scrollWidth / 2;     // مسیرِ یک دور = عرضِ یک نیمه
+    const half = track.scrollWidth / 2;    
     const dur = Math.max(30, half / SPEED);
-    void track.offsetWidth;                 // ریست‌شدن انیمیشن از اول
+    void track.offsetWidth;                 
     track.style.animation = `slide ${dur.toFixed(1)}s linear infinite`;
   }
   buildMarquee();
-  if (document.fonts) document.fonts.ready.then(buildMarquee); // بعد از لود فونت، اندازه‌گیری دقیق
+  if (document.fonts) document.fonts.ready.then(buildMarquee); 
   let rT; addEventListener('resize', () => { clearTimeout(rT); rT = setTimeout(buildMarquee, 200); });
 
-  /* ── ستاره‌های چشمک‌زن با پارالاکس موس + هاله‌ی نور دنبال‌کننده ── */
+ 
   const cv = $('#stars'), ctx = cv.getContext('2d');
   let W, H;
   function resize(){
