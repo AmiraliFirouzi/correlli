@@ -164,12 +164,7 @@
 <header class="nav reveal" style="--d:.05s">
   <a class="brand" href="#" aria-label="کورلی">
     <!-- اگر لوگوی اختصاصی داری، این SVG را با <img src="logo.png" alt="کورلی"> عوض کن -->
-    <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-      <line x1="8" y1="40" x2="40" y2="8" stroke="#f4f2ec" stroke-width="3" stroke-linecap="round"/>
-      <circle cx="14" cy="30" r="4.5" fill="#f4f2ec"/>
-      <circle cx="24" cy="26" r="3.2" stroke="#f4f2ec" stroke-width="2.6"/>
-      <circle cx="34" cy="15" r="4.5" fill="#f4f2ec"/>
-    </svg>
+    <img src="animation.gif" alt="" style="width:32px; height:32px; object-fit:contain">
     <span>کورلی</span>
   </a>
 </header>
@@ -280,7 +275,7 @@
   /* ── نوار متن متحرک: حلقه‌ی بی‌درز با سرعتِ ثابت ─────────────
      سرعت بر حسب «پیکسل بر ثانیه» تعریف شده، نه مدت‌زمان؛
      به این ترتیب روی هر صفحه و با هر عرضی، سرعت یکسان و خوانا می‌ماند. */
-  const PHRASE = 'CORELLI — YOUR DATA SCIENCE ASSISTANT · COMING SOON · ';
+  const PHRASE = 'CORRELLI — YOUR DATA SCIENCE ASSISTANT · COMING SOON · ';
   const SPAN = `<span>${PHRASE.replace(/ /g, '\u00A0')}</span>`;
   const track = $('#track');
   const SPEED = 35; // ← پیکسل بر ثانیه. کمترش کنی کندتر می‌شود (مثلاً ۲۵)
